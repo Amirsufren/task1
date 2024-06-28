@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Sort and Pagination</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 2px solid #020202;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            cursor: pointer;
+        }
+        #pagination {
+            margin: 20px 0;
+        }
+        #pagination button {
+            padding: 10px;
+            margin: 5px;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+       }
+        .slider {
+         display: flex;
+         transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+         min-width: 100%;
+         box-sizing: border-box;
+         text-align: center;
+        }
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #prev-slide {
+            left: 10px;
+        }
+        #next-slide {
+            right: 10px;
+        }
+
+
+    </style>
+</head>
+<body bgcolor="#FFF8DB">
+    <h1>Table</h1>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th onclick="sortTable('id')">ID</th>
+                <th onclick="sortTable('name')">Name</th>
+                <th onclick="sortTable('age')">Age</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div id="pagination">
+        <button onclick="prevPage()">Previous</button>
+        <span id="page-info"></span>
+        <button onclick="nextPage()">Next</button>
+    </div>
+    <div class="slider-container">
+        <button class="slider-button" id="prev-slide">&lt;</button>
+        <div class="slider">
+            <div class="slide">Slide 1 <img src="images/c1.png" alt="image 1"></div>
+            <div class="slide">Slide 2 <img src="images/c2.png" alt="image 2"></div>
+            <div class="slide">Slide 3 <img src="images/c3.png" alt="image 3"></div>
+            <div class="slide">Slide 4 <img src="images/c4.png" alt="image 4 "></div>
+            <!-- Add more slides as needed -->
+        </div>
+        <button class="slider-button" id="next-slide">&gt;</button>
+    </div>
+
+    <script src="table.js"></script>
+</body>
+</html>
